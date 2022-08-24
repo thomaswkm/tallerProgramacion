@@ -13,6 +13,7 @@ public class TallerPrograUno {
 
         mostrarColeccion(libros);
         buscarLibro(libros);
+        System.out.println("Cantidad libros: " + totalLibros(libros));
 
     }
 
@@ -28,13 +29,13 @@ public class TallerPrograUno {
             respuesta = teclado.nextInt();
             if (respuesta == 0) {
                 System.out.println("Introduce el título");
-                String titulo = teclado.next();
+                String titulo = "-" + teclado.next();
                 libros[contador][0] = titulo;
                 System.out.println("Introduce el autor");
-                String autor = teclado.next();
+                String autor = "-" + teclado.next();
                 libros[contador][1] = autor;
                 System.out.println("Introduce la editorial");
-                String editorial = teclado.next();
+                String editorial = "-" + teclado.next();
                 libros[contador][2] = editorial;
                 contador++;
             } else {
@@ -49,16 +50,12 @@ public class TallerPrograUno {
 
     public static void mostrarColeccion(String[][] libros) {
 
-        try {
-            for (int i = 0; i < libros.length; i++) {
+        for (int i = 0; i < libros.length; i++) {
 
-                System.out.print("Titulo: " + libros[i][0]);
-                System.out.print(",Autor: " + libros[i][1]);
-                System.out.print(",Editorial: " + libros[i][2]);
-                System.out.println("");
-            }
-        } catch (Exception e) {
-
+            System.out.print("Titulo: " + "-" + libros[i][0]);
+            System.out.print("Autor: " + "-" + libros[i][1]);
+            System.out.print("Editorial: " + "-" + libros[i][2]);
+            System.out.println("");
         }
 
     }
@@ -66,19 +63,40 @@ public class TallerPrograUno {
     public static void buscarLibro(String[][] libros) {
 
         System.out.println("Introduce el título");
-        String titulo = teclado.next();
+        String titulo = "-" + teclado.next();
 
         for (int i = 0; i < libros.length; i++) {
             if (titulo.equals(libros[i][0])) {
 
                 System.out.println("El libro se encuentra en la colección");
 
-            } else {
-                System.out.println("El libro no se encuentra en la colección");
             }
         }
 
     }
-    
+
+    public static int totalLibros(String[][] libros) {
+        int cantidadLibros = 100;
+        String busqueda = "-";
+
+        for (int i = 0; i < libros.length; i++) {
+
+            try {
+                if (busqueda.equals(libros[i][0].charAt(1))) {
+
+                    
+
+                }
+            } catch (Exception e) {
+                cantidadLibros--;
+                
+            }
+        }
+
+        return cantidadLibros;
+    }
+
+
+
 
 }
