@@ -14,6 +14,7 @@ public class TallerPrograUno {
         mostrarColeccion(libros);
         buscarLibro(libros);
         System.out.println("Cantidad libros: " + totalLibros(libros));
+        System.out.println("Espacios vacios: " + espaciosVacios(totalLibros(libros)));
 
     }
 
@@ -94,6 +95,11 @@ public class TallerPrograUno {
         }
 
         return cantidadLibros;
+    }
+    
+    public static int espaciosVacios(int cantidadLibros){
+    return 100-cantidadLibros;
+    
     }
 
 
